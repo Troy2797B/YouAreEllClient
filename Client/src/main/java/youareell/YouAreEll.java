@@ -2,12 +2,16 @@ package youareell;
 
 import controllers.*;
 
+//THIS IS WHERE THE ACTUAL URL IS MADE
 public class YouAreEll {
 
     TransactionController tt;
 
     public YouAreEll (TransactionController t) {
         this.tt = t;
+    }
+    public YouAreEll (MessageController m , IdController i ){
+
     }
 
     public static void main(String[] args) {

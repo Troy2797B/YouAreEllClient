@@ -1,0 +1,87 @@
+The Point
+You are to write a command interpreter using the provided SimpleShell class.
+
+You're going to create a way
+
+for commands to be typed into your shell, --VIEWS SimpleShell
+to read the typed commands and arguments, --CONTROLLERS? DONE
+to send them off to the Under-A-Rock server using a REST API over the HTTP protocol, --CONTROLLERS
+to read the JSON data returned from the URL call, --CONTROLLERS
+to print it out nicely formatted for your user. --VIEWS
+
+you==user??
+
+
+ID STUFF**************
+You register your name and github id by creating an ID JSON payload (see below) and POSTing it to the server. -- CONTROLLERS IdController postId method
+You can GET all the ids registered by sending a GET request to the same URL. -- CONTROLLERS IdController getId method
+There are JSON templates below for both Ids and Messages.
+When you send a new Message or Id JSON object to the server, it records it, and fills in one or two fields.
+A Message gets an assigned sequence number and a timestamp of when it was received by the server.
+An ID object gets a "user id" field assigned to it. --MODELS constructor
+Any sequence number, timestamp or userid you put into a JSON template gets overwritten by the server when you POST it.
+
+MESSAGE STUFF**************
+Once you've received all the ids, you can send messages to the world or to a specific Github_id. --CONTROLLERS MessageController postMessage
+You can send a message to the global timeline by POSTing a Message JSON object to the URL below.
+If you leave the to id field empty, the message is to the world. --CONTROLLERS MessageController postMessageToWorld(String message, String fromId)
+If you fill out the the JSON template with a valid github_id in the to id field of the JSON payload, then that message is addressed to that friend.
+
+
+
+
+
+
+
+You're going to create a series of REST API handlers that will each perform a specific command. --CONTROLLERS
+
+Each one of the command methods will then call a even lower-level method that makes a certain kind of HTTP request (GET, POST, PUT) to specific filled-in URL.
+The Under-A-Rock Server can be reached at http://zipcode.rocks:8085 Everyone uses the same server.
+
+There are two segments to the API and two kinds of commands in the shell, the ID segment and the Messages segment.
+You can explore several ways of doing the HTTP URL calls to the server, using the one of these:
+
+Apache HTTP Client Library
+Unirest for Java
+Square's OKHttp
+Core Java:
+URL
+HttpURLConnection
+Be prepared to defend your choice if which HTTP client library you chose, with reasons why you chose it.
+
+You should also create some unit tests for your REST API handlers.
+It's possible you may also need to understand some of what the Jackson package does.
+
+You might like this too : https://www.pluralsight.com/courses/rest-fundamentals
+
+
+SOOOO....the point an what each class/package does
+
+CONTROLLERS package: The API??? Communicates to and from Model. Communicates to and from View.
+    IdController: Gets the
+    MessageController:
+    TransactionControler:
+
+MODELS package:
+    Id:
+    Message:
+
+VIEWS:
+    IdTextView:
+    MessageTextView:
+YouAreEll:
+
+
+
+
+*************EXTRA NOTES**************
+Create - Post
+Read - Get
+Update - Put
+Delete - Delete lol
+
+requests are URI'S and responses are URL's
+200 level- all good
+400 level - you are messed up
+500 level - server error
+

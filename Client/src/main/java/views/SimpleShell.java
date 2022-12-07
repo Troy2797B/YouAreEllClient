@@ -12,6 +12,8 @@ import controllers.MessageController;
 import youareell.YouAreEll;
 
 // Simple Shell is a Console view for youareell.YouAreEll.
+
+//this just handles presentation and sends it back to the controller
 public class SimpleShell {
 
 
